@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import {useState, useEffect} from 'react'
 import Countdown from './Components/Countdown'
 
@@ -7,18 +7,20 @@ import Countdown from './Components/Countdown'
 
 export default function App() {
 
-  var now = new Date().getTime();
-  var countDownDate = new Date("Apr 25, 2020").getTime();
-  var distance = countDownDate - now;
+  const [date, setDate] = useState("Apr 25, 2020")
+  const [countDownDate, setCountDownDate] = useState(new Date(date).getTime())
+
+  var now = new Date().getTime()
+  var distance = countDownDate - now
   
   const [count , setCount] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCount(count => count + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+      setCount(count => count + 1)
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
 
 
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -50,10 +52,13 @@ export default function App() {
           <Text>S</Text>
           <Text style={styles.text}>{seconds}</Text>
         </View>
-        
-        
       </View>
-      
+
+      <Text>Define date:</Text>
+      <TextInput value={date.toString()}  style={{width: 300, height: 30, backgroundColor: 'white', margin: 10, textAlign: 'center', borderRadius: 40,}} onChangeText={(text) => setDate(text)}></TextInput>
+      <TouchableOpacity style={{alignItems: 'center', justifyContent: 'center' ,width: 100, height: 30, backgroundColor: 'white', borderRadius: 5000}} onPress={() => {setCountDownDate(new Date(date).getTime())}}>
+        <Text>Start</Text>
+      </TouchableOpacity>
     </View>
   );
 }
