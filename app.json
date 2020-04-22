@@ -1,0 +1,17 @@
+{
+  "name": "CountdownTimer",
+  "displayName": "CountdownTimer",
+  "expo": {
+    "name": "CountdownTimer",
+    "slug": "CountdownTimer",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
