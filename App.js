@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, ScrollView, TouchableOpacity, TextInput, View } from 'react-native';
 import {useState, useEffect} from 'react'
 import CountDown from './Components/Countdown'
 
@@ -7,23 +7,27 @@ import CountDown from './Components/Countdown'
 
 export default function App() {
 
-  const [countdownArray, setcountdownArray] = useState([{title: "Vapo vapo",date: "Apr 25, 2020", color: "white"}, {title: "Encontro com a gata", date: "Apr 26, 2020", color: "white"}])
+  const [countdownArray, setcountdownArray] = useState([
+    {title: "Vapo",date: "Dec 26, 2020, 13:40", color: "white"},
+    {title: "Date with girlfriend", date: "May 26, 2020, 12:10:10", color: "white"},
+    {title: "Vapo",date: "Dec 26, 2020, 13:40", color: "white"},
+  ])
 
   return (
-    <View style={styles.container}>
-      {countdownArray.map(countdown => (
-          <CountDown style={{alignSelf: 'flex-start'}} title={countdown.title} date={countdown.date} color={countdown.color} key={countdown.title}/>
-      ))}
-      
-    </View>
+    <ScrollView style={styles.container}>
+      <View style={{marginTop: 50}}>
+        {countdownArray.map(countdown => (
+            <CountDown style={{alignSelf: 'flex-start'}} title={countdown.title} date={countdown.date} color={countdown.color} key={countdown.title}/>
+        ))}
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+
     backgroundColor: '#F5FCFF',
   },
 
