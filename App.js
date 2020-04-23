@@ -7,12 +7,12 @@ import CountDown from './Components/Countdown'
 
 export default function App() {
 
-  const [countdownArray, setcountdownArray] = useState(["grey", "white"])
+  const [countdownArray, setcountdownArray] = useState([{title: "Vapo vapo",date: "Apr 25, 2020", color: "white"}, {title: "Encontro com a gata", date: "Apr 26, 2020", color: "white"}])
 
   return (
     <View style={styles.container}>
-      {countdownArray.map(color => (
-          <CountDown style={{alignSelf: 'flex-start'}} color={color} key={color.toString()}></CountDown>
+      {countdownArray.map(countdown => (
+          <CountDown style={{alignSelf: 'flex-start'}} title={countdown.title} date={countdown.date} color={countdown.color} key={countdown.title}/>
       ))}
       
     </View>
@@ -25,47 +25,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-    
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  countDown:{
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },  
-  days:{
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 30,
-  },
-  hours:{
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 30,
-  },
-  minutes:{
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 30,
-  },
-  seconds:{
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 30,
-  },
-  text:{
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: 20,
   },
 
 });
