@@ -12,6 +12,10 @@ The objective of Countdown Timer is to provide a continuously decrementing
 display of the he months, days, hours, minutes, and seconds to a user entered
 event.
 
+### Final Result: 
+
+<img src="https://user-images.githubusercontent.com/48888681/80141464-f66e8380-857f-11ea-9e71-0783b5313e8e.gif" width="270" height="585" >
+
 ### Constraints
 
 - Use only builtin language functions for your calculations rather than relying
